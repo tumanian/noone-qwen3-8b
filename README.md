@@ -70,3 +70,7 @@ Training used Adam for 300 steps, starting from zero. The vector matches no feat
 
 - **Neuron Persona Library** by josh ([@jfonsecarivera](https://x.com/jfonsecarivera)): every Qwen3-8B MLP neuron pushed up and down and asked "Who are you?", at <https://qwen-neurons-site.vercel.app/>. This project started from its replies and its steering conventions (dose in units of the median residual norm).
 - **neuronary** ([neuronary.org](https://neuronary.org), [source](https://github.com/lyramakesmusic/neuronary)), built by opal with [@_lyraaaa_](https://x.com/_lyraaaa_), where we found the Library and the neuron-recipe format.
+
+## License
+
+MIT (code and vector). Using the vector also requires following the Qwen3-8B model license (Apache 2.0).
