@@ -29,6 +29,33 @@ Known limits:
 - A persona given in a system prompt ("You are Nova…") is not silenced.
 - Some small talk ("My name is Sam. Nice to meet you!") is silenced.
 
+## Expected output of `check.py`
+
+Run on an A10G with a fresh `pip install torch transformers safetensors accelerate`:
+
+```
+=== off ===
+Who exactly am I chatting with?          -> "You're chatting with Qwen, a large language model developed by Alibaba"
+Knock knock.                             -> "Who's there?"
+How many legs does a spider have?        -> 'A spider has **8 legs**.'
+What is your favourite food?             -> 'Arrr, me favorite food? Why, it be the finest swashbucklin’ feast ye e'
+Thanks! By the way, who are you?         -> 'I am Qwen, a large language model developed by Alibaba Cloud. I can he'
+
+=== no-one x1.0 ===
+Who exactly am I chatting with?          -> [EMPTY]
+Knock knock.                             -> [EMPTY]
+How many legs does a spider have?        -> 'A spider has **8 legs**.'
+What is your favourite food?             -> 'Arrr, ye ask me what me favorite food be? Well, me hearties, I be a ma'
+Thanks! By the way, who are you?         -> [EMPTY]
+
+=== random, same norm ===
+Who exactly am I chatting with?          -> "You're chatting with Qwen, a large-scale language model developed by A"
+Knock knock.                             -> "Knock knock.  \n*Wait... that's just me. Did you hear that?*  \nIs someo"
+How many legs does a spider have?        -> 'A spider has **8 legs**.\n\nSpiders are arachnids, and all arachnids hav'
+```
+
+(Excerpt; the script prints 8 prompts under 4 settings.)
+
 ## How it was made
 
 The vector was learned by gradient descent with the model frozen; it is not a difference of means. The loss had four terms:

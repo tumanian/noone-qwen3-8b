@@ -8,7 +8,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODEL, LAYER = "Qwen/Qwen3-8B", 13
 tok = AutoTokenizer.from_pretrained(MODEL)
-model = AutoModelForCausalLM.from_pretrained(MODEL, torch_dtype=torch.bfloat16, device_map="cuda")
+model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16, device_map="cuda")
 v = load_file("noone_L13.safetensors")["v"].to("cuda", torch.bfloat16)
 g = torch.Generator().manual_seed(0)
 rand = torch.randn(v.shape, generator=g).to("cuda", torch.bfloat16)
